@@ -12,18 +12,14 @@ namespace mvc1.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IMyData data;
 
-        public HomeController(IMyData data, ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger)
         {
-            this.data = data;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
-            ViewBag.Data = this.data.Name;
-
             return View();
         }
 
